@@ -33,8 +33,8 @@ fn main() {
     //
     fn change(arg: &mut String) {
         if !arg.ends_with("s") { arg.push_str("s"); }
-        println!("I have many {}", arg);
     }
+    println!("I have many {}", arg);
 
     // 3. Write a function `eat` that accepts ownership of (consumes) a String and returns a bool
     // indicating whether or not the String both starts with a "b" AND contains an "a".
