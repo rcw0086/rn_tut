@@ -46,13 +46,21 @@ fn main() {
     //      - Greater than 5.0 -- `Shot::Miss`
     for coord in arrow_coords {
         coord.print_description();    
-        let d = coord.distance_from_center();
-        let shot: Shot = if d < 1.0 {
-            Shot::Bullseye
-        } else if d < 5.0 {
-            Shot::Hit(d)
-        } else {
-            Shot::Miss
+        // My first attempt:
+        // let d = coord.distance_from_center();
+        // let shot: Shot = if d < 1.0 {
+        //     Shot::Bullseye
+        // } else if d < 5.0 {
+        //     Shot::Hit(d)
+        // } else {
+        //     Shot::Miss
+        // };
+        
+        // the instructor's approach
+        let shot = match coord.distance_from_center() {
+            d if d < 1.0 => Shot::Bullseye,
+            d if d < 5.0 => Shot::Hit(d),
+            _ => Shot::Miss
         };
         shots.push(shot);
     }
